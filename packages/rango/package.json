@@ -1,7 +1,10 @@
 {
   "name": "@whale/rango",
+  "type": "module",
   "packageManager": "yarn@4.5.0",
   "scripts": {
-     "lint": "eslint \"**/*.{ts,tsx}\" --fix"
+    "build": "esbuild --outdir=dist --bundle",
+    "build2": "yarn g:build",
+    "lint": "eslint \"**/*.{ts,tsx}\" --fix"
   }
 }

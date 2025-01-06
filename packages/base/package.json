@@ -1,7 +1,8 @@
 {
   "name": "@whale/base",
+  "type": "module",
   "packageManager": "yarn@4.5.0",
   "scripts": {
-     "lint": "eslint \"**/*.{ts,tsx}\" --fix"
+    "lint": "eslint \"**/*.{ts,tsx}\" --fix"
   }
 }

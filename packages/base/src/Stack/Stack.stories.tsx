@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Stack } from './';
+import { Stack } from './mod.js';
 
 const meta: Meta<typeof Stack> = {
+  title: 'base/Stack',
   component: Stack,
 };
 
