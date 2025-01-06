@@ -2042,7 +2042,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0":
+"esbuild@npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0, esbuild@npm:^0.24.0":
   version: 0.24.0
   resolution: "esbuild@npm:0.24.0"
   dependencies:
@@ -2230,9 +2230,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-rango@portal:../eslint-config-rango::locator=whale%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "eslint-config-rango@portal:../eslint-config-rango::locator=whale%40workspace%3A."
+"eslint-config-rango@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "eslint-config-rango@npm:0.0.1"
   peerDependencies:
     "@eslint/compat": ^1.2.2
     "@eslint/eslintrc": ^3.1.0
@@ -2250,8 +2250,9 @@ __metadata:
     globals: ^15.12.0
     prettier: ^3.3.3
     typescript: ^5.6.3
+  checksum: 10c0/d224e636f0f94dc08695c4058d710c4b429d52dbfea47502c1c93b20c16003a56d63aa35abaea36e7f653ae1bf84284afdcb6503cb26aa74f28295b65121c25d
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "eslint-import-resolver-node@npm:^0.3.9":
   version: 0.3.9
@@ -3981,6 +3982,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"primitives@workspace:packages/primitives":
+  version: 0.0.0-use.local
+  resolution: "primitives@workspace:packages/primitives"
+  languageName: unknown
+  linkType: soft
+
 "proc-log@npm:^4.1.0, proc-log@npm:^4.2.0":
   version: 4.2.0
   resolution: "proc-log@npm:4.2.0"
@@ -4953,9 +4960,10 @@ __metadata:
     "@types/react-dom": "npm:^18.3.1"
     "@typescript-eslint/eslint-plugin": "npm:^8.13.0"
     "@typescript-eslint/parser": "npm:^8.13.0"
+    esbuild: "npm:^0.24.0"
     eslint: "npm:^9.14.0"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-config-rango: "portal:../eslint-config-rango"
+    eslint-config-rango: "npm:^0.0.1"
     eslint-plugin-destructuring: "npm:^2.2.1"
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-jsx-id-attribute-enforcement: "npm:^1.0.2"
