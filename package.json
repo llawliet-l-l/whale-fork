@@ -5,9 +5,11 @@
     "packages/*"
   ],
   "scripts": {
+    "dev": "yarn workspace @whale/storybook dev",
+    "build:storybook": "yarn workspace @whale/storybook build",
     "build:foundation": "yarn workspace @whale/foundation build",
     "build:base": "yarn workspace @whale/base build",
-    "build": "yarn build:foundation && yarn build:base",
+    "build": "yarn build:foundation && yarn build:storybook",
     "postinstall": "husky",
     "lint": "yarn workspaces foreach -A run lint",
     "g:build": "esbuild --outdir=dist --bundle",
