@@ -24,8 +24,7 @@ const ThemeDecorator: Decorator = (Story, context) => {
           padding: '1rem',
           boxSizing: 'border-box',
           width: '100%',
-          background:
-            'var(--w-color-neutral-bg-static-primary-subtle, transparent)',
+          background: 'var(--w-color-neutral-bg-static-primary-emphasis)',
           fontFamily: 'var(--w-typography-font-family-sora, Sora, sans-serif)',
           fontSize: 'var(--w-typography-font-size-16, 1rem)',
           lineHeight: 'var(--w-typography-line-height-24, 1.5rem)',
