@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.lib.json",
+  "include": ["src/**/*", "src/types/**/*"],
+  "compilerOptions": {
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@whale/foundation",
+  "version": "1.0.0",
+  "description": "Design system foundation package with primitive and semantic tokens",
+  "private": true,
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "style": "./dist/index.css",
+  "main": "./dist/index.css",
+  "exports": {
+    ".": "./dist/index.css",
+    "./css": "./dist/index.css"
+  },
+  "scripts": {
+    "build": "tsx ../../scripts/generate-foundation-styles/command.mts",
+    "clean": "rm -rf dist"
+  }
+}

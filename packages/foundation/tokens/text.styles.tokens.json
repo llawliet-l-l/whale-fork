@@ -1,0 +1,216 @@
+{
+  "heading": {
+    "3x-large": {
+      "$type": "typography",
+      "$description": "The largest text on the screen is reserved for short, important text or numerals.",
+      "$value": {
+        "fontFamily": "{text.heading.3x-large.font-family}",
+        "fontSize": "{text.heading.3x-large.font-size}",
+        "fontWeight": 700,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.heading.3x-large.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "2x-large": {
+      "$type": "typography",
+      "$description": "The largest text on the screen is reserved for short, important text or numerals.",
+      "$value": {
+        "fontFamily": "{text.heading.2x-large.font-family}",
+        "fontSize": "{text.heading.2x-large.font-size}",
+        "fontWeight": 700,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.heading.2x-large.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "x-large": {
+      "$type": "typography",
+      "$description": "The largest text on the screen is reserved for short, important text or numerals.",
+      "$value": {
+        "fontFamily": "{text.heading.x-large.font-family}",
+        "fontSize": "{text.heading.x-large.font-size}",
+        "fontWeight": 700,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.heading.x-large.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "large": {
+      "$type": "typography",
+      "$description": "The largest text on the screen is reserved for short, important text or numerals.",
+      "$value": {
+        "fontFamily": "{text.heading.large.font-family}",
+        "fontSize": "{text.heading.large.font-size}",
+        "fontWeight": 700,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.heading.large.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "medium": {
+      "$type": "typography",
+      "$description": "Used to break up content into sections and provide a clear hierarchy of information.",
+      "$value": {
+        "fontFamily": "{text.heading.medium.font-family}",
+        "fontSize": "{text.heading.medium.font-size}",
+        "fontWeight": 700,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.heading.medium.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "small": {
+      "$type": "typography",
+      "$description": "Used to break up content into sections and provide a clear hierarchy of information.",
+      "$value": {
+        "fontFamily": "{text.heading.small.font-family}",
+        "fontSize": "{text.heading.small.font-size}",
+        "fontWeight": 700,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.heading.small.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    }
+  },
+  "title": {
+    "large": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{text.title.large.font-family}",
+        "fontSize": "{text.title.large.font-size}",
+        "fontWeight": 700,
+        "letterSpacing": "0%",
+        "lineHeight": "{text.title.large.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{text.title.small.font-family}",
+        "fontSize": "{text.title.small.font-size}",
+        "fontWeight": 700,
+        "letterSpacing": "0%",
+        "lineHeight": "{text.title.small.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    }
+  },
+  "label": {
+    "x-large": {
+      "$type": "typography",
+      "$description": "A short phrase or sentence that provides context or information about a specific block of text.",
+      "$value": {
+        "fontFamily": "{text.label.x-large.font-family}",
+        "fontSize": "{text.label.x-large.font-size}",
+        "fontWeight": 600,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.label.x-large.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "large": {
+      "$type": "typography",
+      "$description": "A short phrase or sentence that provides context or information about a specific block of text.",
+      "$value": {
+        "fontFamily": "{text.label.large.font-family}",
+        "fontSize": "{text.label.large.font-size}",
+        "fontWeight": 600,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.label.large.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "medium": {
+      "$type": "typography",
+      "$description": "A short phrase or sentence that provides context or information about a specific block of text.",
+      "$value": {
+        "fontFamily": "{text.label.medium.font-family}",
+        "fontSize": "{text.label.medium.font-size}",
+        "fontWeight": 600,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.label.medium.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "small": {
+      "$type": "typography",
+      "$description": "A short phrase or sentence that provides context or information about a specific block of text.",
+      "$value": {
+        "fontFamily": "{text.label.small.font-family}",
+        "fontSize": "{text.label.small.font-size}",
+        "fontWeight": 600,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.label.small.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    }
+  },
+  "paragraph": {
+    "x-large": {
+      "$type": "typography",
+      "$description": "Longer blocks of text, used for mostly text-based content.",
+      "$value": {
+        "fontFamily": "{text.paragraph.x-large.font-family}",
+        "fontSize": "{text.paragraph.x-large.font-size}",
+        "fontWeight": 400,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.paragraph.x-large.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "large": {
+      "$type": "typography",
+      "$description": "Longer blocks of text, used for mostly text-based content.",
+      "$value": {
+        "fontFamily": "{text.paragraph.large.font-family}",
+        "fontSize": "{text.paragraph.large.font-size}",
+        "fontWeight": 400,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.paragraph.large.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "medium": {
+      "$type": "typography",
+      "$description": "Longer blocks of text, used for mostly text-based content.",
+      "$value": {
+        "fontFamily": "{text.paragraph.medium.font-family}",
+        "fontSize": "{text.paragraph.medium.font-size}",
+        "fontWeight": 400,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.paragraph.medium.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    },
+    "small": {
+      "$type": "typography",
+      "$description": "Longer blocks of text, used for mostly text-based content.",
+      "$value": {
+        "fontFamily": "{text.paragraph.small.font-family}",
+        "fontSize": "{text.paragraph.small.font-size}",
+        "fontWeight": 400,
+        "letterSpacing": "0px",
+        "lineHeight": "{text.paragraph.small.line-height}",
+        "textTransform": "none",
+        "textDecoration": "none"
+      }
+    }
+  }
+}

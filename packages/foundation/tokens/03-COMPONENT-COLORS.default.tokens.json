@@ -1,0 +1,364 @@
+{
+  "color": {
+    "button": {
+      "primary": {
+        "filled": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.primary.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.primary.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.primary.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.primary.selected}"
+            }
+          },
+          "content": {
+            "on-brand": {
+              "$type": "color",
+              "$value": "{color.neutral.content.static.on-brand-rango.emphasis}"
+            }
+          }
+        },
+        "outline": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.inverted.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.inverted.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.inverted.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.inverted.selected}"
+            }
+          },
+          "content": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.brand.rango.content.static.primary.emphasis}"
+            }
+          },
+          "border": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.brand.rango.border.interactive.primary.rest}"
+            }
+          }
+        },
+        "ghost": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.subtle.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.subtle.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.subtle.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.subtle.selected}"
+            }
+          },
+          "content": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.brand.rango.content.static.primary.emphasis}"
+            }
+          }
+        }
+      },
+      "secondary": {
+        "filled": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.primary.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.primary.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.primary.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.primary.selected}"
+            }
+          },
+          "content": {
+            "on-brand": {
+              "$type": "color",
+              "$value": "{color.neutral.content.static.on-accent-rango.emphasis}"
+            }
+          }
+        },
+        "outline": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.inverted.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.inverted.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.inverted.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.inverted.selected}"
+            }
+          },
+          "content": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.accent.rango.content.static.primary.emphasis}"
+            }
+          },
+          "border": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.accent.rango.border.static.primary.emphasis}"
+            }
+          }
+        },
+        "ghost": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.ghost.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.ghost.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.ghost.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.accent.rango.bg.interactive.ghost.selected}"
+            }
+          },
+          "content": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.accent.rango.content.static.primary.emphasis}"
+            }
+          }
+        }
+      },
+      "neutral": {
+        "filled": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.inverted.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.inverted.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.inverted.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.inverted.selected}"
+            }
+          },
+          "content": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.neutral.content.static.inverted.emphasis}"
+            }
+          }
+        },
+        "outline": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.primary.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.primary.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.primary.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.primary.selected}"
+            }
+          },
+          "content": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.neutral.content.static.primary.emphasis}"
+            }
+          },
+          "border": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.neutral.border.static.inverted.emphasis}"
+            }
+          }
+        },
+        "ghost": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.ghost.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.ghost.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.ghost.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.neutral.bg.interactive.ghost.selected}"
+            }
+          },
+          "content": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.neutral.content.static.primary.emphasis}"
+            }
+          }
+        }
+      },
+      "destructive": {
+        "filled": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.primary.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.primary.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.primary.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.primary.selected}"
+            }
+          },
+          "content": {
+            "on-brand": {
+              "$type": "color",
+              "$value": "{color.system.content.static.error.primary.emphasis}"
+            }
+          }
+        },
+        "outline": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.inverted.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.inverted.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.inverted.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.inverted.selected}"
+            }
+          },
+          "content": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.system.content.static.error.on-neutral.emphasis}"
+            }
+          },
+          "border": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.system.border.static.error.primary.emphasis}"
+            }
+          }
+        },
+        "ghost": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.ghost.rest}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.ghost.hover}"
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.ghost.pressed}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{color.system.bg.interactive.error.ghost.selected}"
+            }
+          },
+          "content": {
+            "emphasis": {
+              "$type": "color",
+              "$value": "{color.system.content.static.error.on-neutral.emphasis}"
+            }
+          }
+        }
+      },
+      "disable": {
+        "background": {
+          "disable": {
+            "$type": "color",
+            "$value": "{color.system.bg.static.disable.primary.emphasis}"
+          }
+        },
+        "content": {
+          "disable": {
+            "$type": "color",
+            "$value": "{color.system.content.static.disable.primary.emphasis}"
+          }
+        }
+      }
+    }
+  }
+}

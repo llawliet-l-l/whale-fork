@@ -1,0 +1,16 @@
+{
+  "color": {
+    "button": {
+      "primary": {
+        "filled": {
+          "background": {
+            "rest": {
+              "$type": "color",
+              "$value": "{color.brand.rango.bg.interactive.primary.rest}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

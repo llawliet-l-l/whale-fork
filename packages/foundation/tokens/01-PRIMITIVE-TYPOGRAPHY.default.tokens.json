@@ -1,0 +1,160 @@
+{
+  "typography": {
+    "font-family": {
+      "sora": {
+        "$type": "string",
+        "$value": "Sora"
+      },
+      "roboto": {
+        "$type": "string",
+        "$value": "Roboto"
+      },
+      "roboto-condensed": {
+        "$type": "string",
+        "$value": "Roboto Condensed"
+      },
+      "roboto-mono": {
+        "$type": "string",
+        "$value": "Roboto Mono"
+      }
+    },
+    "line-height": {
+      "16": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "20": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "24": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "28": {
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "32": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "36": {
+        "$type": "dimension",
+        "$value": "36px"
+      },
+      "40": {
+        "$type": "dimension",
+        "$value": "40px"
+      },
+      "44": {
+        "$type": "dimension",
+        "$value": "44px"
+      },
+      "52": {
+        "$type": "dimension",
+        "$value": "52px"
+      },
+      "64": {
+        "$type": "dimension",
+        "$value": "64px"
+      },
+      "112": {
+        "$type": "dimension",
+        "$value": "112px"
+      }
+    },
+    "font-size": {
+      "12": {
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "14": {
+        "$type": "dimension",
+        "$value": "14px"
+      },
+      "16": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "18": {
+        "$type": "dimension",
+        "$value": "18px"
+      },
+      "20": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "24": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "28": {
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "32": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "36": {
+        "$type": "dimension",
+        "$value": "36px"
+      },
+      "40": {
+        "$type": "dimension",
+        "$value": "40px"
+      },
+      "44": {
+        "$type": "dimension",
+        "$value": "44px"
+      },
+      "52": {
+        "$type": "dimension",
+        "$value": "52px"
+      },
+      "96": {
+        "$type": "dimension",
+        "$value": "96px"
+      }
+    },
+    "font-weight": {
+      "thin": {
+        "$type": "dimension",
+        "$value": "100"
+      },
+      "extra-light": {
+        "$type": "dimension",
+        "$value": "200"
+      },
+      "light": {
+        "$type": "dimension",
+        "$value": "300"
+      },
+      "regular": {
+        "$type": "dimension",
+        "$value": "400"
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": "500"
+      },
+      "semi-bold": {
+        "$type": "dimension",
+        "$value": "600"
+      },
+      "bold": {
+        "$type": "dimension",
+        "$value": "700"
+      },
+      "extra-bold": {
+        "$type": "dimension",
+        "$value": "800"
+      },
+      "black": {
+        "$type": "dimension",
+        "$value": "900"
+      }
+    }
+  }
+}

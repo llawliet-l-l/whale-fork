@@ -1,0 +1,82 @@
+{
+  "components": {
+    "button": {
+      "primary-focus": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "4px",
+            "color": "{color.system.border.static.focused.primary.brand}"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "2px",
+            "color": "{color.system.border.static.focused.primary.mute-brand}"
+          }
+        ]
+      },
+      "secondary-focus": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "4px",
+            "color": "{color.system.border.static.focused.primary.accent}"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "2px",
+            "color": "{color.system.border.static.focused.primary.mute-accent}"
+          }
+        ]
+      },
+      "neutral-focus": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "4px",
+            "color": "{color.system.border.static.focused.primary.neutral}"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "2px",
+            "color": "{color.system.border.static.focused.primary.mute-neutral}"
+          }
+        ]
+      },
+      "destructive-focus": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "4px",
+            "color": "{color.system.border.static.focused.primary.destructive}"
+          },
+          {
+            "offsetX": "0px",
+            "offsetY": "0px",
+            "blur": "0px",
+            "spread": "2px",
+            "color": "{color.system.border.static.focused.primary.mute-destructive}"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "Design Tokens",
+  "collections": {
+    "01-PRIMITIVE-TYPOGRAPHY": {
+      "modes": {
+        "default": ["01-PRIMITIVE-TYPOGRAPHY.default.tokens.json"]
+      }
+    },
+    "02-SEMANTIC-COLORS": {
+      "modes": {
+        "light": ["02-SEMANTIC-COLORS.light.tokens.json"],
+        "dark": ["02-SEMANTIC-COLORS.dark.tokens.json"],
+        "morning": ["02-SEMANTIC-COLORS.morning.tokens.json"],
+        "midnight": ["02-SEMANTIC-COLORS.midnight.tokens.json"]
+      }
+    },
+    "02-SEMANTIC-TEXT-FIXED": {
+      "modes": {
+        "default": ["02-SEMANTIC-TEXT-FIXED.default.tokens.json"]
+      }
+    },
+    "02-SEMANTIC-TEXT-FLUID": {
+      "modes": {
+        "desktop": ["02-SEMANTIC-TEXT-FLUID.desktop.tokens.json"],
+        "tablet": ["02-SEMANTIC-TEXT-FLUID.tablet.tokens.json"],
+        "mobile": ["02-SEMANTIC-TEXT-FLUID.mobile.tokens.json"]
+      }
+    },
+    "01-PRIMITIVE-PALETTE": {
+      "modes": {
+        "default": ["01-PRIMITIVE-PALETTE.default.tokens.json"]
+      }
+    },
+    "01-PRIMITIVE-LAYOUT": {
+      "modes": {
+        "default": ["01-PRIMITIVE-LAYOUT.default.tokens.json"]
+      }
+    },
+    "03-COMPONENT-COLORS": {
+      "modes": {
+        "default": ["03-COMPONENT-COLORS.default.tokens.json"]
+      }
+    }
+  },
+  "styles": {
+    "text": ["text.styles.tokens.json"],
+    "effect": ["effect.styles.tokens.json"],
+    "color": ["color.styles.tokens.json"]
+  }
+}
