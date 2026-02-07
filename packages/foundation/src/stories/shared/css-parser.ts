@@ -1,13 +1,13 @@
 // Import CSS files at build time
 import type { Category, CSSVariables, FileName } from './types.js';
 
-import componentColorCSS from '../../css/component/color.css?raw';
-import primitiveLayoutCSS from '../../css/primitive/layout.css?raw';
-import primitivePaletteCSS from '../../css/primitive/palette.css?raw';
-import primitiveTypographyCSS from '../../css/primitive/typography.css?raw';
-import semanticColorCSS from '../../css/semantic/color.css?raw';
-import semanticHeadingCSS from '../../css/semantic/heading.css?raw';
-import semanticTextCSS from '../../css/semantic/text.css?raw';
+import componentColorCSS from '../../../dist/component/color.css?raw';
+import primitiveLayoutCSS from '../../../dist/primitive/layout.css?raw';
+import primitivePaletteCSS from '../../../dist/primitive/palette.css?raw';
+import primitiveTypographyCSS from '../../../dist/primitive/typography.css?raw';
+import semanticColorCSS from '../../../dist/semantic/color.css?raw';
+import semanticHeadingCSS from '../../../dist/semantic/heading.css?raw';
+import semanticTextCSS from '../../../dist/semantic/text.css?raw';
 
 // CSS file mapping for easy access
 const CSS_FILES = {
