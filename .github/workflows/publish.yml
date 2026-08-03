@@ -1,0 +1,35 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - next
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Prepare
+        uses: ./.github/actions/prepare
+
+      - name: Detect publish flag
+        id: flag
+        uses: ./.github/actions/detect-publish-flag
+
+      - name: Publish packages
+        run: yarn run publish "$PUBLISH_FLAG"
+        env:
+          PUBLISH_FLAG: ${{ steps.flag.outputs.flag }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
