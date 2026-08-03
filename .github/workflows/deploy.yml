@@ -1,0 +1,47 @@
+name: Deploy Storybook
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - next
+
+concurrency:
+  group: deploy-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: >-
+        ${{ github.event_name == 'pull_request' && 'preview'
+        || github.ref == 'refs/heads/main' && 'production'
+        || 'next' }}
+      url: ${{ steps.deploy.outputs.whale-storybook-url }}
+    env:
+      VERCEL_PROJECT_ID_WHALE_STORYBOOK: ${{ secrets.VERCEL_PROJECT_ID_STORYBOOK }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Prepare
+        uses: ./.github/actions/prepare
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel
+
+      - name: Detect deploy flag
+        id: flag
+        uses: ./.github/actions/detect-deploy-flag
+
+      - name: Deploy
+        id: deploy
+        run: yarn run rangutopia client deploy "$DEPLOY_FLAG"
+        env:
+          DEPLOY_FLAG: ${{ steps.flag.outputs.flag }}
