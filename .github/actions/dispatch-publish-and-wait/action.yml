@@ -1,0 +1,42 @@
+name: Dispatch Publish and Wait
+description: >-
+  Start a publish by dispatching publish.yml on `main`, then block until that run
+  finishes, failing unless it concluded successfully.
+
+  Publishing stays in publish.yml because npm trusted publishing authorizes the
+  workflow that STARTS the run and binds it to a workflow filename. A reusable
+  `uses:` call would make release-triggered publishes present release.yml as the
+  identity and fail authentication, so the publish has to be its own run.
+
+  The calling job must grant `actions: write` (dispatch, then read the run that
+  was created) and `checks: read` (gh run watch); a composite action cannot
+  declare `permissions:` itself. It must also check the repo out so this local
+  action resolves.
+
+  Cancelling the calling workflow does NOT cancel the dispatched run — it is a
+  separate run and cancellation does not cascade. Stop it by hand from the URL
+  this prints.
+
+runs:
+  using: composite
+  steps:
+    - name: Dispatch publish.yml on main and wait
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+        GH_REPO: ${{ github.repository }}
+      run: |
+        # `return_run_details` makes the dispatch answer 200 with the new run's
+        # id instead of the legacy 204 No Content, so we wait on exactly the run
+        # we started rather than guessing from a listing. `gh run watch
+        # --exit-status` exits non-zero for ANY non-success conclusion, cancelled
+        # and timed-out included, so no separate conclusion check is needed.
+        # `inputs[channel]=prod` needs -F: the nested key[subkey] syntax is
+        # documented for --field, not --raw-field.
+        run_id=$(gh api --method POST \
+          "repos/${GH_REPO}/actions/workflows/publish.yml/dispatches" \
+          -f ref=main -F 'inputs[channel]=prod' -F return_run_details=true \
+          --jq '.workflow_run_id')
+        [ -n "$run_id" ] || { echo "::error::dispatch returned no run id"; exit 1; }
+        echo "Publish run: https://github.com/${GH_REPO}/actions/runs/${run_id}"
+        gh run watch "$run_id" --exit-status --interval 20

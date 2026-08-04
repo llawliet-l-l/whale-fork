@@ -2,12 +2,16 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "allowJs": true,
-    "checkJs": false,
+    /*
+     * scripts/ is real logic that runs in CI, and the root config files are
+     * cheap to check alongside it.
+     */
+    "checkJs": true,
     "noEmit": true,
     "declaration": false,
     "declarationMap": false,
     "types": ["node"]
   },
-  "include": ["*.mjs", "*.js", ".*.mjs", ".*.js"],
+  "include": ["*.mjs", "*.js", ".*.mjs", ".*.js", "*.d.ts", "scripts/**/*.mjs"],
   "exclude": ["node_modules", "**/dist", "**/storybook-static"]
 }
