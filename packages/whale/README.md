@@ -1,4 +1,4 @@
-# @rango/whale
+# @arthur2079/whale2
 
 Whale design system. Components from [Radix Themes](https://www.radix-ui.com/themes)
 plus custom Whale components, exported from a single entry point.
@@ -8,7 +8,7 @@ Works with React 18 and 19, in Vite and Next.js (Pages or App Router).
 ## Install
 
 ```bash
-yarn add @rango/whale
+yarn add @arthur2079/whale2
 ```
 
 `react` and `react-dom` are peer dependencies. `@radix-ui/themes` is a regular
@@ -20,8 +20,8 @@ Import the stylesheet once at the root of your app, then wrap it in
 `WhaleProvider`:
 
 ```tsx
-import { WhaleProvider, Button } from '@rango/whale';
-import '@rango/whale/styles.css';
+import { WhaleProvider, Button } from '@arthur2079/whale2';
+import '@arthur2079/whale2/styles.css';
 
 export default function App() {
   return (
@@ -41,8 +41,8 @@ already carry the `'use client'` directive, so they can be used directly from a
 server component without wrapping them yourself.
 
 ```tsx
-import { WhaleProvider } from '@rango/whale';
-import '@rango/whale/styles.css';
+import { WhaleProvider } from '@arthur2079/whale2';
+import '@arthur2079/whale2/styles.css';
 
 export default function RootLayout({
   children,
@@ -88,7 +88,7 @@ outside that folder and depend on neither Radix nor the provider.
 
 ## Notes
 
-`@rango/whale/styles.css` `@import`s the Radix Themes stylesheet and then adds
+`@arthur2079/whale2/styles.css` `@import`s the Radix Themes stylesheet and then adds
 Whale's own styles, so one import is all you need. Your bundler resolves that
 bare specifier, which also means it can dedupe the Radix rules if something else
 in your app imports them directly.

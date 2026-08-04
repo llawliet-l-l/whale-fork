@@ -1,4 +1,4 @@
-import { Button } from '@rango/whale';
+import { Button } from '@arthur2079/whale2';
 import React from 'react';
 
 import preview from '../../.storybook/preview';

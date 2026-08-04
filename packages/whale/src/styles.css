@@ -5,7 +5,7 @@
  *
  * The Radix Themes stylesheet is pulled in above; add token overrides and CSS
  * for custom Whale components below. Everything ships as a single
- * `@rango/whale/styles.css`.
+ * `@arthur2079/whale2/styles.css`.
  *
  * `@import` must stay the first rule in the file — CSS only allows it before
  * other rules.

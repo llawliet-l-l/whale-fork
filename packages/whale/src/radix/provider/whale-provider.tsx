@@ -7,7 +7,7 @@ export type WhaleProviderProps = ThemeProps;
 
 /**
  * Supplies the CSS variables that Radix-based Whale components read. Pair it
- * with `import '@rango/whale/styles.css'`.
+ * with `import '@arthur2079/whale2/styles.css'`.
  */
 export const WhaleProvider = forwardRef<HTMLDivElement, WhaleProviderProps>(
   function WhaleProvider(props, ref) {

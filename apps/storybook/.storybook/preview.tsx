@@ -1,9 +1,9 @@
-import { WhaleProvider } from '@rango/whale';
+import { WhaleProvider } from '@arthur2079/whale2';
 import addonA11y from '@storybook/addon-a11y';
 import { definePreview } from '@storybook/react-vite';
 import React from 'react';
 
-import '@rango/whale/styles.css';
+import '@arthur2079/whale2/styles.css';
 
 /*
  * Every Radix-based Whale component reads CSS variables that only exist inside

@@ -77,7 +77,7 @@ jobs:
         env:
           # Scoped to this step — it is the only one that talks to Vercel.
           # rangutopia derives the project-id name from the package:
-          # `@rango/whale-storybook` loses its scope and uppercases.
+          # `@arthur2079/whale2-storybook` loses its scope and uppercases.
           VERCEL_PROJECT_ID_WHALE_STORYBOOK: ${{ secrets.VERCEL_PROJECT_ID_STORYBOOK }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

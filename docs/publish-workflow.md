@@ -1,7 +1,7 @@
 # Publish workflow
 
 [`.github/workflows/publish.yml`](../.github/workflows/publish.yml) — publishes
-`@rango/whale` to npm.
+`@arthur2079/whale2` to npm.
 
 This is the **only** entry point for publishing. npm trusted publishing
 authorises the workflow that _starts_ a run and binds it to a workflow filename,
