@@ -51,7 +51,7 @@ jobs:
     env:
       # rangutopia derives this name from the package: `@arthur2079/whale2-storybook`
       # loses its scope and uppercases to WHALE_STORYBOOK.
-      VERCEL_PROJECT_ID_WHALE1_STORYBOOK: ${{ secrets.VERCEL_PROJECT_ID_STORYBOOK }}
+      VERCEL_PROJECT_ID_WHALE2_STORYBOOK: ${{ secrets.VERCEL_PROJECT_ID_STORYBOOK }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
