@@ -9,7 +9,7 @@
     "noEmit": true,
     /*
      * `vite/client` supplies the ambient declarations for asset imports, so
-     * `import '@rango/whale/styles.css'` type-checks without a hand-written
+     * `import '@arthur2079/whale2/styles.css'` type-checks without a hand-written
      * `*.css` shim.
      */
     "types": ["node", "vite/client"]

@@ -1,5 +1,5 @@
 {
-  "name": "@rango/whale-storybook",
+  "name": "@arthur2079/whale2-storybook",
   "version": "0.0.0",
   "private": true,
   "main": "storybook-static/index.html",
@@ -12,7 +12,7 @@
     "clean": "node -e \"require('node:fs').rmSync('storybook-static',{recursive:true,force:true})\""
   },
   "dependencies": {
-    "@rango/whale": "^0.1.0",
+    "@arthur2079/whale2": "^0.1.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },

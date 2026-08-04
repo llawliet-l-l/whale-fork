@@ -23,7 +23,7 @@ const radixVersion = JSON.parse(
 const output = [
   `/* @radix-ui/themes@${radixVersion} — inlined at build time */`,
   readFileSync(join(radixRoot, 'styles.css'), 'utf8'),
-  '/* @rango/whale — design system styles */',
+  '/* @arthur2079/whale2 — design system styles */',
   readFileSync(join(packageRoot, 'src', 'styles.css'), 'utf8'),
 ].join('\n');
 

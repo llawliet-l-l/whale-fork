@@ -49,7 +49,7 @@ jobs:
         || 'next' }}
       url: ${{ steps.deploy.outputs.whale-storybook-url }}
     env:
-      # rangutopia derives this name from the package: `@rango/whale-storybook`
+      # rangutopia derives this name from the package: `@arthur2079/whale2-storybook`
       # loses its scope and uppercases to WHALE_STORYBOOK.
       VERCEL_PROJECT_ID_WHALE_STORYBOOK: ${{ secrets.VERCEL_PROJECT_ID_STORYBOOK }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
