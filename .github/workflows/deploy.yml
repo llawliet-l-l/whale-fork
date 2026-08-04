@@ -1,0 +1,90 @@
+name: Deploy Storybook
+# Deploys the storybook to Vercel. The target comes from the `channel` input
+# when release.yml calls this workflow, otherwise from the event
+# (pull request -> preview, everything else -> next).
+#
+# Production is NOT reached by pushing `main`: release.yml calls this with
+# `channel: prod`, after a successful publish.
+
+on:
+  pull_request:
+  push:
+    branches:
+      - next
+
+  # Inputs live only here. `type: choice` is a workflow_dispatch-only feature —
+  # workflow_call accepts boolean, number or string — so `channel` is a plain
+  # string. The only caller is release.yml, and an unrecognised value fails
+  # loudly when rangutopia rejects the flag.
+  workflow_call:
+    inputs:
+      channel:
+        description: 'Deploy target: auto | prod | next | preview. "auto" derives it from the event.'
+        type: string
+        required: false
+        default: auto
+
+# A newer commit makes an in-flight deploy of the same branch/PR pointless.
+concurrency:
+  group: deploy-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Lives here rather than in release.yml: a `uses:` job cannot carry a
+    # timeout, and release.yml calls this as a reusable workflow.
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    environment:
+      # Resolved before any step runs, so this reads job-level contexts only.
+      # `inputs` is empty on push and pull_request, which falls through to the
+      # event-based default — the same rule detect-deploy-flag applies.
+      name: >-
+        ${{ (inputs.channel == 'prod' && 'production')
+        || (inputs.channel == 'preview' && 'preview')
+        || (inputs.channel == 'next' && 'next')
+        || (github.event_name == 'pull_request' && 'preview')
+        || 'next' }}
+      url: ${{ steps.deploy.outputs.whale-storybook-url }}
+    env:
+      # rangutopia derives this name from the package: `@arthur2079/whale2-storybook`
+      # loses its scope and uppercases to WHALE_STORYBOOK.
+      VERCEL_PROJECT_ID_WHALE_STORYBOOK: ${{ secrets.VERCEL_PROJECT_ID_STORYBOOK }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          # A production deploy always means `main`, so the channel implies the
+          # ref and no second input is needed. Empty falls back to the
+          # triggering ref, which is what the push and pull_request runs want —
+          # and what a called workflow would otherwise resolve to, namely the
+          # branch the release was dispatched from.
+          ref: ${{ inputs.channel == 'prod' && 'main' || '' }}
+
+      - name: Prepare
+        uses: ./.github/actions/prepare
+
+      # rangutopia spawns `vercel` from PATH, and Yarn 4 dropped
+      # `yarn global add`.
+      - name: Install Vercel CLI
+        run: npm install --global vercel
+
+      - name: Detect deploy flag
+        id: flag
+        uses: ./.github/actions/detect-deploy-flag
+
+      - name: Deploy
+        id: deploy
+        run: yarn run rangutopia client deploy "$DEPLOY_FLAG"
+        env:
+          # An explicit channel wins; `auto` and the events that carry no inputs
+          # at all — where the dereference yields an empty string — fall back to
+          # the detected flag.
+          DEPLOY_FLAG: >-
+            ${{ (inputs.channel == '' || inputs.channel == 'auto')
+            && steps.flag.outputs.flag
+            || format('--{0}', inputs.channel) }}

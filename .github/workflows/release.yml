@@ -1,0 +1,110 @@
+name: Release
+# Production release. ALWAYS operates on `main`, whichever branch it is
+# dispatched from:
+#
+#   sync-main -> publish -> deploy -> sync-next
+#
+# Every job pins `ref: main` (or lets the sync script target it explicitly), and
+# the publish is dispatched on `main`, so running this from `next` or a feature
+# branch still releases `main`.
+#
+# npm publishing is NOT done here — it is delegated to publish.yml through the
+# workflow_dispatch REST API, which returns the created run's id when
+# `return_run_details: true` is sent, so we can wait on that exact run. The
+# reason is npm OIDC trusted publishing: a package has only ONE trusted publisher
+# and it is bound to a workflow filename. Keeping every publish inside publish.yml
+# preserves that single identity — a reusable `uses:` call would present
+# release.yml instead and fail authentication.
+run-name: Release `main` (dispatched from ${{ github.ref_name }})
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  # One release at a time. Every release operates on `main` whatever branch it
+  # was dispatched from, so a single group covers them all. Deliberately NOT
+  # shared with publish.yml: the publish job below blocks on a publish.yml run,
+  # and a group spanning both would leave the release holding the lock while
+  # waiting on a child that cannot start until it lets go. cancel-in-progress
+  # stays at its default of false, so an in-flight release is never interrupted.
+  group: release
+
+jobs:
+  # ── sync next -> main so main carries everything before the release ─────────
+  sync-main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          # The default GITHUB_TOKEN pushes the sync commit. Branch protection
+          # that blocks github-actions[bot] from pushing to main or next is not
+          # supported by this pipeline.
+          fetch-depth: 0
+
+      - name: Setup Git
+        uses: ./.github/actions/setup-git
+
+      - name: Sync main with next
+        run: node scripts/sync-branch.mjs --source next --target main
+
+  # ── publish: hand off to publish.yml on `main` and wait for it ──────────────
+  #    Runs BEFORE deploy, so a failed publish leaves the deployed site
+  #    untouched rather than shipping a Storybook whose package never reached
+  #    npm. workflow_dispatch is one of the few events the default GITHUB_TOKEN
+  #    may still trigger, so it can start the child run on its own.
+  publish:
+    needs: sync-main
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      actions: write # dispatch publish.yml + read the run we created
+      checks: read # gh run watch
+    steps:
+      # Only so the local action below resolves — this job makes no git
+      # changes. `ref: main` because sync-main has already pushed by now.
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Publish via publish.yml and wait
+        uses: ./.github/actions/dispatch-publish-and-wait
+
+  # ── deploy the storybook to Vercel production ───────────────────────────────
+  #    Calls deploy.yml rather than repeating its steps. `channel: prod` is
+  #    passed explicitly because deploy.yml's own detection reads `github.ref`,
+  #    which for a called workflow is the branch the release was dispatched
+  #    FROM. That channel also implies the checked-out ref is `main`, so there
+  #    is nothing else to pass.
+  #
+  #    Unlike the publish, a reusable call is fine here: nothing in the deploy
+  #    authenticates by workflow identity.
+  deploy:
+    needs: publish
+    uses: ./.github/workflows/deploy.yml
+    with:
+      channel: prod
+    secrets: inherit
+
+  # ── sync main -> next so next picks up the release commit and version bump ──
+  sync-next:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          # Pushed with the default GITHUB_TOKEN, as in sync-main.
+          fetch-depth: 0
+
+      - name: Setup Git
+        uses: ./.github/actions/setup-git
+
+      - name: Sync next with main
+        run: node scripts/sync-branch.mjs --source main --target next
