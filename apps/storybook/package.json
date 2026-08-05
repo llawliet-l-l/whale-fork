@@ -12,7 +12,7 @@
     "clean": "node -e \"require('node:fs').rmSync('storybook-static',{recursive:true,force:true})\""
   },
   "dependencies": {
-    "@arthur2079/whale2": "^0.3.1-next.1",
+    "@arthur2079/whale2": "^0.4.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },

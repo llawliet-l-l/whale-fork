@@ -1,6 +1,6 @@
 {
   "name": "@arthur2079/whale2",
-  "version": "0.3.1-next.1",
+  "version": "0.4.0",
   "description": "Whale design system — Radix Themes and custom components for React 18 & 19",
   "license": "MIT",
   "type": "module",
@@ -51,6 +51,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/llawliet-l-l/whale-fork.git"
-  },
-  "stableVersion": "0.3.1-next.0"
+  }
 }
