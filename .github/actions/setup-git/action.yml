@@ -1,0 +1,14 @@
+name: Setup Git
+description: >-
+  Configure the github-actions[bot] identity for commits made by CI. Separate
+  from the prepare action so the sync jobs can make a merge commit without
+  installing Node dependencies they never use.
+
+runs:
+  using: composite
+  steps:
+    - name: Configure git identity
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      shell: 'bash'

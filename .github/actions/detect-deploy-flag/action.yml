@@ -1,0 +1,27 @@
+name: Detect Deploy Flag
+description: >-
+  Detects the deploy flag from the event. Production is not covered here:
+  release.yml calls deploy.yml with an explicit channel, because `github.ref`
+  in a called workflow is the branch the release was dispatched from rather
+  than the branch being released.
+
+outputs:
+  flag:
+    description: The deploy flag
+    value: ${{ steps.flag.outputs.flag }}
+
+runs:
+  using: composite
+  steps:
+    - name: Detect deploy flag
+      id: flag
+      # Keyed on the event, not the ref: on a `pull_request` event `github.ref`
+      # is `refs/pull/<n>/merge`, so a ref-only check would deploy every PR as
+      # `--next`.
+      run: |
+        if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          echo "flag=--preview" >> $GITHUB_OUTPUT
+        else
+          echo "flag=--next" >> $GITHUB_OUTPUT
+        fi
+      shell: bash

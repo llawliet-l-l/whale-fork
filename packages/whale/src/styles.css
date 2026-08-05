@@ -1,0 +1,12 @@
+@import '@radix-ui/themes/styles.css';
+
+/*
+ * Whale design system styles.
+ *
+ * The Radix Themes stylesheet is pulled in above; add token overrides and CSS
+ * for custom Whale components below. Everything ships as a single
+ * `@arthur2079/whale2/styles.css`.
+ *
+ * `@import` must stay the first rule in the file — CSS only allows it before
+ * other rules.
+ */
