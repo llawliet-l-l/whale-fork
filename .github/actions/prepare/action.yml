@@ -1,0 +1,25 @@
+name: Setup Environments
+description: 'Set up Git and Node.js, and authenticate against the npm registry.'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Enable Corepack
+      run: corepack enable
+      shell: 'bash'
+
+    - name: Setup NodeJS
+      uses: actions/setup-node@v6
+      with:
+        node-version: '24'
+        cache: 'yarn'
+        registry-url: 'https://registry.npmjs.org'
+
+    # Both consumers check the repo out before running prepare, so this local
+    # action resolves.
+    - name: Setup Git
+      uses: ./.github/actions/setup-git
+
+    - name: Install packages
+      run: yarn install --immutable
+      shell: 'bash'
