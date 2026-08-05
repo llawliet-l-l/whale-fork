@@ -52,7 +52,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@arthur2079/whale2-storybook@workspace:apps/storybook"
   dependencies:
-    "@arthur2079/whale2": "npm:^0.3.1-next.0"
+    "@arthur2079/whale2": "npm:^0.3.1-next.1"
     "@storybook/addon-a11y": "npm:^10.5.5"
     "@storybook/addon-docs": "npm:^10.5.5"
     "@storybook/react-vite": "npm:^10.5.5"
@@ -65,7 +65,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@arthur2079/whale2@npm:^0.3.1-next.0, @arthur2079/whale2@workspace:packages/whale":
+"@arthur2079/whale2@npm:^0.3.1-next.1, @arthur2079/whale2@workspace:packages/whale":
   version: 0.0.0-use.local
   resolution: "@arthur2079/whale2@workspace:packages/whale"
   dependencies:
