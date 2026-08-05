@@ -10,7 +10,7 @@ export default defineMain({
    */
   addons: ['@storybook/addon-docs', '@storybook/addon-a11y'],
   /*
-   * Stories import `@rango-dev/whale` the way a consumer would, so props come from
+   * Stories import `@arthur2079/whale3` the way a consumer would, so props come from
    * Radix's declarations inside node_modules, which docgen cannot see through.
    * Controls are declared explicitly in argTypes instead.
    */
