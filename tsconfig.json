@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false,
+    "types": ["node"]
+  },
+  "include": ["*.mjs", "*.js", ".*.mjs", ".*.js"],
+  "exclude": ["node_modules", "**/dist", "**/storybook-static"]
+}
