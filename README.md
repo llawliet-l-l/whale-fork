@@ -5,8 +5,8 @@ playground.
 
 ## Layout
 
-| Workspace        | Package                  |         | Purpose                                                                                  |
-| ---------------- | ------------------------ | ------- | ---------------------------------------------------------------------------------------- |
+| Workspace        | Package                        |         | Purpose                                                                                  |
+| ---------------- | ------------------------------ | ------- | ---------------------------------------------------------------------------------------- |
 | `packages/whale` | `@arthur2079/whale2`           | public  | The design system: components re-exported from Radix Themes, plus Whale's own components |
 | `apps/storybook` | `@arthur2079/whale2-storybook` | private | Storybook 10 app that holds whale's stories and doubles as the published playground      |
 
@@ -81,12 +81,12 @@ authentication. The deploy has no such constraint, so `release.yml` calls
 
 ### Workflow documentation
 
-| Workflow                              | Purpose                                                        |
-| ------------------------------------- | -------------------------------------------------------------- |
-| [Checks](./docs/checks-workflow.md)   | Format, lint, typecheck and build on every PR and push         |
+| Workflow                              | Purpose                                                              |
+| ------------------------------------- | -------------------------------------------------------------------- |
+| [Checks](./docs/checks-workflow.md)   | Format, lint, typecheck and build on every PR and push               |
 | [Publish](./docs/publish-workflow.md) | Publishes `@arthur2079/whale2` to npm — the only publish entry point |
-| [Deploy](./docs/deploy-workflow.md)   | Deploys the Storybook app to Vercel                            |
-| [Release](./docs/release-workflow.md) | Production release: sync, publish, deploy, sync back           |
+| [Deploy](./docs/deploy-workflow.md)   | Deploys the Storybook app to Vercel                                  |
+| [Release](./docs/release-workflow.md) | Production release: sync, publish, deploy, sync back                 |
 
 ## Tooling notes
 
