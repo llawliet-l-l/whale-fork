@@ -1,0 +1,106 @@
+# @arthur2079/whale3
+
+Whale design system. Components from [Radix Themes](https://www.radix-ui.com/themes)
+plus custom Whale components, exported from a single entry point.
+
+Works with React 18 and 19, in Vite and Next.js (Pages or App Router).
+
+## Install
+
+```bash
+yarn add @arthur2079/whale3
+```
+
+`react` and `react-dom` are peer dependencies. `@radix-ui/themes` is a regular
+dependency, so you do not need to install it yourself.
+
+## Usage
+
+Import the stylesheet once at the root of your app, then wrap it in
+`WhaleProvider`:
+
+```tsx
+import { WhaleProvider, Button } from '@arthur2079/whale3';
+import '@arthur2079/whale3/styles.css';
+
+export default function App() {
+  return (
+    <WhaleProvider>
+      <Button variant="solid" size="2">
+        Click me
+      </Button>
+    </WhaleProvider>
+  );
+}
+```
+
+### Next.js App Router
+
+Import the stylesheet in `app/layout.tsx`. `WhaleProvider` and every component
+already carry the `'use client'` directive, so they can be used directly from a
+server component without wrapping them yourself.
+
+```tsx
+import { WhaleProvider } from '@arthur2079/whale3';
+import '@arthur2079/whale3/styles.css';
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <WhaleProvider>{children}</WhaleProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+## Theming
+
+`WhaleProvider` accepts every [Radix `Theme`](https://www.radix-ui.com/themes/docs/components/theme)
+prop and forwards it untouched, so Radix's own defaults apply — including
+`grayColor="auto"`, which picks a gray tuned to the current accent.
+
+```tsx
+<WhaleProvider accentColor="jade" appearance="dark" radius="large">
+  {children}
+</WhaleProvider>
+```
+
+Whale intentionally does not override these yet. It is the right place for
+brand-level defaults once there are values worth setting; restating Radix's
+own defaults here would only shadow them.
+
+## Components
+
+| Component       | Source                     | Needs `WhaleProvider` |
+| --------------- | -------------------------- | --------------------- |
+| `Button`        | Radix Themes (re-exported) | yes                   |
+| `WhaleProvider` | Whale                      | —                     |
+
+Source layout mirrors this split: everything under `src/radix` is built on
+Radix Themes and requires `WhaleProvider`. Whale's own custom components live
+outside that folder and depend on neither Radix nor the provider.
+
+## Notes
+
+`@arthur2079/whale3/styles.css` contains the Radix Themes stylesheet inlined at build
+time followed by Whale's own styles, so one import is all you need. Radix ships
+a fully flattened stylesheet, and inlining it avoids asking your bundler to
+resolve a bare specifier from inside CSS — Parcel treats such a specifier as a
+relative path and fails outright. If you also import `@radix-ui/themes/styles.css`
+directly somewhere, drop it to avoid shipping those rules twice.
+
+`@radix-ui/themes` is pinned to an exact version rather than a range, because
+inlining bakes a copy of its stylesheet into this package at build time.
+
+The build also emits `dist/styles.css.d.ts`, an empty module declaration.
+TypeScript refuses an import it has no declaration for, so without it
+`import '@rango-dev/whale/styles.css'` fails to compile. It is wired up twice
+because the two resolution modes disagree: the `types` condition in `exports`
+covers `node16` and `bundler`, while `typesVersions` covers `node`/`node10`,
+which ignores `exports` altogether.

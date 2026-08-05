@@ -1,5 +1,9 @@
-import rangoRules from "eslint-config-rango";
+import rangoRules from 'eslint-config-rango';
 
 export default [
-        ...rangoRules
-]
+  {
+    ignores: ['**/dist/**', '**/storybook-static/**', '**/*.d.ts'],
+  },
+  ...rangoRules,
+  { settings: { react: { version: 'detect' } } },
+];
