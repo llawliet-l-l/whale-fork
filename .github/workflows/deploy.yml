@@ -47,7 +47,7 @@ jobs:
         || (inputs.channel == 'next' && 'next')
         || (github.event_name == 'pull_request' && 'preview')
         || 'next' }}
-      url: ${{ steps.deploy.outputs.whale-storybook-url }}
+      url: ${{ steps.deploy.outputs.whale3-storybook-url }}
 
     steps:
       - uses: actions/checkout@v6
@@ -78,7 +78,7 @@ jobs:
           # Scoped to this step — it is the only one that talks to Vercel.
           # rangutopia derives the project-id name from the package:
           # `@arthur2079/whale3-storybook` loses its scope and uppercases.
-          VERCEL_PROJECT_ID_WHALE_STORYBOOK: ${{ secrets.VERCEL_PROJECT_ID_STORYBOOK }}
+          VERCEL_PROJECT_ID_WHALE3_STORYBOOK: ${{ secrets.VERCEL_PROJECT_ID_STORYBOOK }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           # An explicit channel wins; `auto` and the events that carry no inputs
