@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    /*
+     * Classic transform, matching packages/whale: the shared lint config still
+     * requires React to be in scope for JSX.
+     */
+    "jsx": "react",
+    "noEmit": true,
+    /*
+     * `vite/client` supplies the ambient declarations for asset imports, so
+     * `import '@rango-dev/whale/styles.css'` type-checks without a hand-written
+     * `*.css` shim.
+     */
+    "types": ["vite/client"]
+  },
+  /*
+   * `.storybook` is spelled out rather than listed as a bare directory:
+   * TypeScript's include globs skip dot-prefixed paths, which would leave the
+   * config files unowned by any project and unlintable.
+   */
+  "include": [".storybook/**/*.ts", ".storybook/**/*.tsx", "src"]
+}
