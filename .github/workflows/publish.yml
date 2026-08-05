@@ -1,0 +1,81 @@
+name: Publish
+# Publishes the packages to npm. The channel comes from the `channel` input when
+# one is given, otherwise from the branch the run is on (main -> --prod,
+# next -> --next, anything else -> --experimental):
+#
+#   * push to `next` -> prerelease publish (--next), automatic
+#   * dispatch       -> publishes the branch you dispatch from, unless `channel`
+#                       overrides it (release.yml passes `prod`)
+#
+# This is the single npm trusted-publishing entry point. npm allows only one
+# trusted publisher per package and binds it to a workflow filename, so EVERY
+# publish has to go through this file — including releases, which release.yml
+# starts by dispatching this workflow on `main` and waiting for it.
+run-name: Publish ${{ github.ref_name }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: 'Publish channel. "auto" derives it from the branch (main -> prod, next -> next, anything else -> experimental). release.yml passes "prod".'
+        type: choice
+        required: false
+        default: auto
+        options:
+          - auto
+          - prod
+          - next
+          - experimental
+
+  push:
+    branches:
+      - next
+
+concurrency:
+  # One publish at a time; rangutopia pushes commits and tags, so two runs would
+  # race over the same refs. No cancel-in-progress (default false) — a publish
+  # interrupted mid-run could leave npm and git disagreeing.
+  #
+  # Deliberately a different group from release.yml's `release`: a release
+  # blocks waiting on a publish run it dispatched, so one group spanning both
+  # would have the parent holding the lock its child needs.
+  group: publish
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+          # Full history: changed-package detection diffs against the last
+          # release commit or tag.
+          fetch-depth: 0
+
+      - name: Prepare
+        uses: ./.github/actions/prepare
+
+      - name: Detect publish flag
+        id: flag
+        uses: ./.github/actions/detect-publish-flag
+
+      - name: Publish packages
+        run: yarn run publish "$PUBLISH_FLAG"
+        env:
+          # An explicit channel wins; `auto` (the default) and push runs — where
+          # the `inputs` context does not exist and the dereference yields an
+          # empty string — fall back to the branch-detected flag. `channel` is a
+          # choice input, so GitHub rejects any other value at dispatch time.
+          PUBLISH_FLAG: >-
+            ${{ (inputs.channel == '' || inputs.channel == 'auto')
+            && steps.flag.outputs.flag
+            || format('--{0}', inputs.channel) }}
+          # rangutopia publishes with `npm`, which reads the .npmrc that
+          # `setup-node`'s registry-url writes in the prepare action.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ github.token }}

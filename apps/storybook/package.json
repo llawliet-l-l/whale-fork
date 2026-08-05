@@ -2,6 +2,7 @@
   "name": "@rango-dev/whale-storybook",
   "version": "0.0.0",
   "private": true,
+  "main": "storybook-static/index.html",
   "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006 --no-open",

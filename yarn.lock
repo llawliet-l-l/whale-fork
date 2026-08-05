@@ -8426,6 +8426,7 @@ __metadata:
     husky: "npm:^9.1.7"
     lint-staged: "npm:^17.3.0"
     prettier: "npm:^3.9.6"
+    rangutopia: "npm:^0.3.1"
     turbo: "npm:^2.10.8"
     typescript: "npm:^6.0.3"
   languageName: unknown
