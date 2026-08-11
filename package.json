@@ -15,11 +15,14 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
+    "typecheck:root": "tsc -p tsconfig.json",
     "clean": "turbo run clean",
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
     "postinstall": "husky",
     "commitlint": "commitlint --edit",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "publish": "yarn run rangutopia library publish --since-start"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
@@ -43,6 +46,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.3.0",
     "prettier": "^3.9.6",
+    "rangutopia": "^0.3.1",
     "turbo": "^2.10.8",
     "typescript": "^6.0.3"
   }
