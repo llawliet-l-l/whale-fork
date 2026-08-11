@@ -47,6 +47,7 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: write
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -75,7 +76,4 @@ jobs:
             ${{ (inputs.channel == '' || inputs.channel == 'auto')
             && steps.flag.outputs.flag
             || format('--{0}', inputs.channel) }}
-          # rangutopia publishes with `npm`, which reads the .npmrc that
-          # `setup-node`'s registry-url writes in the prepare action.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ github.token }}
