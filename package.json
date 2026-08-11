@@ -22,7 +22,7 @@
     "postinstall": "husky",
     "commitlint": "commitlint --edit",
     "lint-staged": "lint-staged",
-    "publish": "yarn run rangutopia library publish --since-start"
+    "publish": "yarn run rangutopia library publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
@@ -49,5 +49,9 @@
     "rangutopia": "^0.3.1",
     "turbo": "^2.10.8",
     "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/llawliet-l-l/whale-fork.git"
   }
 }

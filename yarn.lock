@@ -48,6 +48,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@arthur2079/whale3@npm:^0.2.1-next.0, @arthur2079/whale3@workspace:packages/whale":
+  version: 0.0.0-use.local
+  resolution: "@arthur2079/whale3@workspace:packages/whale"
+  dependencies:
+    "@radix-ui/themes": "npm:3.3.0"
+    "@storybook/react-vite": "npm:^10.5.5"
+    "@types/react": "npm:^19.2.18"
+    "@types/react-dom": "npm:^19.2.4"
+    esbuild: "npm:^0.28.1"
+    esbuild-plugins-node-modules-polyfill: "npm:^1.7.1"
+    rangutopia: "npm:^0.3.1"
+    react: "npm:^19.2.8"
+    react-dom: "npm:^19.2.8"
+    storybook: "npm:^10.5.5"
+  peerDependencies:
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  languageName: unknown
+  linkType: soft
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.29.7":
   version: 7.29.7
   resolution: "@babel/code-frame@npm:7.29.7"
@@ -2647,26 +2667,6 @@ __metadata:
   checksum: 10c0/65123c5bf6ba412b7286536c811f76b4feed6a6efeee24625e2a4fd6c98ac8d59cb4261656a5c3b2c685f4c37a57be7f4e53262d5c2091a7d702d65017924e15
   languageName: node
   linkType: hard
-
-"@rango-dev/whale@npm:^0.2.0, @rango-dev/whale@workspace:packages/whale":
-  version: 0.0.0-use.local
-  resolution: "@rango-dev/whale@workspace:packages/whale"
-  dependencies:
-    "@radix-ui/themes": "npm:3.3.0"
-    "@storybook/react-vite": "npm:^10.5.5"
-    "@types/react": "npm:^19.2.18"
-    "@types/react-dom": "npm:^19.2.4"
-    esbuild: "npm:^0.28.1"
-    esbuild-plugins-node-modules-polyfill: "npm:^1.7.1"
-    rangutopia: "npm:^0.3.1"
-    react: "npm:^19.2.8"
-    react-dom: "npm:^19.2.8"
-    storybook: "npm:^10.5.5"
-  peerDependencies:
-    react: ^18.0.0 || ^19.0.0
-    react-dom: ^18.0.0 || ^19.0.0
-  languageName: unknown
-  linkType: soft
 
 "@rolldown/binding-android-arm64@npm:1.2.1":
   version: 1.2.1
@@ -7785,7 +7785,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "storybook@workspace:apps/storybook"
   dependencies:
-    "@rango-dev/whale": "npm:^0.2.0"
+    "@arthur2079/whale3": "npm:^0.2.1-next.0"
     "@storybook/addon-a11y": "npm:^10.5.5"
     "@storybook/addon-docs": "npm:^10.5.5"
     "@storybook/react-vite": "npm:^10.5.5"

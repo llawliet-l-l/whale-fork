@@ -1,6 +1,6 @@
 {
-  "name": "@rango-dev/whale",
-  "version": "0.2.0",
+  "name": "@arthur2079/whale3",
+  "version": "0.2.1-next.0",
   "description": "Whale design system — Radix Themes and custom components for React 18 & 19",
   "license": "MIT",
   "type": "module",
@@ -63,6 +63,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rango-exchange/whale.git"
-  }
+    "url": "https://github.com/llawliet-l-l/whale-fork.git"
+  },
+  "stableVersion": "0.2.0"
 }

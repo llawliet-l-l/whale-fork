@@ -47,7 +47,7 @@ const componentStyles = readdirSync(sourceDirectory, {
 const output = [
   `/* @radix-ui/themes@${radixVersion} — inlined at build time */`,
   readFileSync(join(radixRoot, 'styles.css'), 'utf8'),
-  '/* @rango-dev/whale — design system styles */',
+  '/* @arthur2079/whale3 — design system styles */',
   readFileSync(join(sourceDirectory, 'styles.css'), 'utf8'),
   ...componentStyles,
 ].join('\n');
@@ -57,7 +57,7 @@ mkdirSync(outputDirectory, { recursive: true });
 writeFileSync(join(outputDirectory, 'styles.css'), output, 'utf8');
 
 /*
- * TypeScript will not accept `import '@rango-dev/whale/styles.css'` unless it
+ * TypeScript will not accept `import '@arthur2079/whale3/styles.css'` unless it
  * finds a declaration for it. It looks for one by appending extensions to the
  * resolved path, so a file named exactly `styles.css.d.ts` next to the
  * stylesheet is what it wants — see the `exports` and `typesVersions` entries
