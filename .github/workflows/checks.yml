@@ -1,0 +1,40 @@
+name: Checks
+# Verifies a change before it ships. Pull requests only — every change reaches
+# `next` through one, so re-running on the push would only repeat the same
+# commit.
+
+on:
+  pull_request:
+
+concurrency:
+  # Unlike publish and deploy, checks are safe to interrupt — a newer commit
+  # supersedes the result entirely.
+  group: checks-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+
+    steps:
+      # No `fetch-depth: 0`: nothing in these checks reads git history.
+      - uses: actions/checkout@v6
+
+      - name: Prepare
+        uses: ./.github/actions/prepare
+
+      # Cheapest first, so an obvious failure reports quickly.
+      - name: Formatting
+        run: yarn format:check
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Typecheck
+        run: yarn typecheck
+
+      - name: Build
+        run: yarn build

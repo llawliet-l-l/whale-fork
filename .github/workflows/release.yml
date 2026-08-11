@@ -1,0 +1,76 @@
+name: Release
+# Production release: sync main <- next, publish, deploy, sync next <- main.
+# ALWAYS operates on `main`, whichever branch it is dispatched from.
+# The publish is dispatched to publish.yml rather than called, because npm
+# trusted publishing binds to a workflow filename.
+# Rationale, failure modes and the dispatch sequence: docs/release-workflow.md
+run-name: Release `main` (dispatched from ${{ github.ref_name }})
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  # Deliberately NOT shared with publish.yml: the publish job below waits on a
+  # publish.yml run, and one group spanning both would deadlock.
+  group: release
+
+jobs:
+  sync-main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git
+        uses: ./.github/actions/setup-git
+
+      - name: Sync main with next
+        run: node scripts/sync-branch.mjs --source next --target main
+
+  publish:
+    needs: sync-main
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      actions: write # dispatch publish.yml + read the run we created
+      checks: read # gh run watch
+    steps:
+      # Only so the local action below resolves; this job makes no git changes.
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Publish via publish.yml and wait
+        uses: ./.github/actions/dispatch-publish-and-wait
+
+  deploy:
+    needs: publish
+    uses: ./.github/workflows/deploy.yml
+    with:
+      # Explicit: deploy.yml's own detection reads `github.ref`, which for a
+      # called workflow is the branch the release was dispatched from.
+      channel: prod
+    secrets: inherit
+
+  sync-next:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git
+        uses: ./.github/actions/setup-git
+
+      - name: Sync next with main
+        run: node scripts/sync-branch.mjs --source main --target next
