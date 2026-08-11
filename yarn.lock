@@ -48,7 +48,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@arthur2079/whale3@npm:^0.2.1-next.0, @arthur2079/whale3@workspace:packages/whale":
+"@arthur2079/whale3@npm:^0.2.1-next.0":
+  version: 0.2.1-next.0
+  resolution: "@arthur2079/whale3@npm:0.2.1-next.0"
+  dependencies:
+    "@radix-ui/themes": "npm:3.3.0"
+  peerDependencies:
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  checksum: 10c0/3689f3dd90fad1a6aac702667e86abb64667582c63d10fb3cd71544c2536b98f4bd17bdd27005df441e0501d04d129c8a763e5580c81b3f5ae48ad0c25ce1a91
+  languageName: node
+  linkType: hard
+
+"@arthur2079/whale3@workspace:packages/whale":
   version: 0.0.0-use.local
   resolution: "@arthur2079/whale3@workspace:packages/whale"
   dependencies:
