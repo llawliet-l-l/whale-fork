@@ -1,9 +1,9 @@
-import { WhaleProvider } from '@rango-dev/whale';
+import { WhaleProvider } from '@arthur2079/whale3';
 import addonA11y from '@storybook/addon-a11y';
 import { definePreview } from '@storybook/react-vite';
 import React from 'react';
 
-import '@rango-dev/whale/styles.css';
+import '@arthur2079/whale3/styles.css';
 
 /*
  * Every base Whale component reads CSS variables that only exist inside

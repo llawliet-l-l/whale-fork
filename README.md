@@ -5,17 +5,17 @@ playground.
 
 ## Layout
 
-| Workspace        | Package            |         | Purpose                                                                                  |
-| ---------------- | ------------------ | ------- | ---------------------------------------------------------------------------------------- |
-| `packages/whale` | `@rango-dev/whale` | public  | The design system: components re-exported from Radix Themes, plus Whale's own components |
-| `apps/storybook` | `storybook`        | private | Storybook 10 configuration and the published playground; stories live in the package     |
+| Workspace        | Package              |         | Purpose                                                                                  |
+| ---------------- | -------------------- | ------- | ---------------------------------------------------------------------------------------- |
+| `packages/whale` | `@arthur2079/whale3` | public  | The design system: components re-exported from Radix Themes, plus Whale's own components |
+| `apps/storybook` | `storybook`          | private | Storybook 10 configuration and the published playground; stories live in the package     |
 
-`@rango-dev/whale` supports React 18 and 19, in both Next.js (including the App
+`@arthur2079/whale3` supports React 18 and 19, in both Next.js (including the App
 Router) and Vite. Consumers import the components and the stylesheet:
 
 ```tsx
-import { WhaleProvider, Button } from '@rango-dev/whale';
-import '@rango-dev/whale/styles.css';
+import { WhaleProvider, Button } from '@arthur2079/whale3';
+import '@arthur2079/whale3/styles.css';
 ```
 
 Stories live beside the components they document, in `packages/whale`, so a new
@@ -25,7 +25,7 @@ package, and the stories themselves are excluded from the published build.
 
 ### ESM-only, by design
 
-`@rango-dev/whale` ships **ESM only**. There is deliberately no CommonJS build, which
+`@arthur2079/whale3` ships **ESM only**. There is deliberately no CommonJS build, which
 matches every other Rango library. `main`, `module`, `types` and the `exports`
 map cover `node16`/`nodenext` ESM, `node10` classic resolution and bundler
 resolution. A CommonJS project on `moduleResolution: node16` will hit `TS1479` —
@@ -82,12 +82,12 @@ authentication. The deploy has no such constraint, so `release.yml` calls
 
 ### Workflow documentation
 
-| Workflow                              | Purpose                                                            |
-| ------------------------------------- | ------------------------------------------------------------------ |
-| [Checks](./docs/checks-workflow.md)   | Format, lint, typecheck and build on every PR and push             |
-| [Publish](./docs/publish-workflow.md) | Publishes `@rango-dev/whale` to npm — the only publish entry point |
-| [Deploy](./docs/deploy-workflow.md)   | Deploys the Storybook app to Vercel                                |
-| [Release](./docs/release-workflow.md) | Production release: sync, publish, deploy, sync back               |
+| Workflow                              | Purpose                                                              |
+| ------------------------------------- | -------------------------------------------------------------------- |
+| [Checks](./docs/checks-workflow.md)   | Format, lint, typecheck and build on every PR and push               |
+| [Publish](./docs/publish-workflow.md) | Publishes `@arthur2079/whale3` to npm — the only publish entry point |
+| [Deploy](./docs/deploy-workflow.md)   | Deploys the Storybook app to Vercel                                  |
+| [Release](./docs/release-workflow.md) | Production release: sync, publish, deploy, sync back                 |
 
 ## Tooling notes
 
@@ -99,7 +99,7 @@ authentication. The deploy has no such constraint, so `release.yml` calls
   stays on 9.x and TypeScript on 6.0.x because of its peer ranges, so `YN0060`
   peer warnings on install are expected.
 - **Internal dependencies** use plain semver ranges — `apps/storybook` depends on
-  `@rango-dev/whale` as `^0.1.0`, not `workspace:*`. Yarn resolves a matching range
+  `@arthur2079/whale3` as `^0.1.0`, not `workspace:*`. Yarn resolves a matching range
   to the local workspace, and unlike `workspace:*` it participates in the
   `yarn version` cascade, which rewrites the dependent's manifest and persists
   `yarn.lock` on every publish.
