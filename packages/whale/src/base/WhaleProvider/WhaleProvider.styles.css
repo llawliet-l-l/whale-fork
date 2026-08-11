@@ -1,0 +1,151 @@
+/*
+ * Replaces Radix's cyan scale with Rango's blue — WhaleProvider pins
+ * accentColor="cyan", so "cyan" is only the slot the brand color occupies.
+ * Copied from app-v2's RadixThemeProvider, minus its app-specific rules.
+ */
+:root,
+.light,
+.light-theme {
+  --cyan-1: #fbfcfe;
+  --cyan-2: #f5f8fd;
+  --cyan-3: #f1f4fb;
+  --cyan-4: #dbe5f9;
+  --cyan-5: #b0c6f7;
+  --cyan-6: #83a6f8;
+  --cyan-7: #5b86f5;
+  --cyan-8: #2d58f2;
+  --cyan-9: #1c3cf1;
+  --cyan-10: #0c16a5;
+  --cyan-11: #060c75;
+  --cyan-12: #02074b;
+
+  --cyan-a1: #1c3cf108;
+  --cyan-a2: #1c3cf10d;
+  --cyan-a3: #1c3cf11a;
+  --cyan-a4: #1c3cf129;
+  --cyan-a5: #1c3cf13d;
+  --cyan-a6: #1c3cf154;
+  --cyan-a7: #1c3cf170;
+  --cyan-a8: #1c3cf1a1;
+  --cyan-a9: #1c3cf1;
+  --cyan-a10: #0c16a5;
+  --cyan-a11: #060c75;
+  --cyan-a12: #02074b;
+
+  --cyan-contrast: #fff;
+  --cyan-surface: #f4f8ffcc;
+  --cyan-indicator: #1c3cf1;
+  --cyan-track: #1c3cf1;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    :root,
+    .light,
+    .light-theme {
+      --cyan-1: oklch(99.04% 0.0031 258.11);
+      --cyan-2: oklch(97.66% 0.0102 253.95);
+      --cyan-3: oklch(96.34% 0.0145 253.33);
+      --cyan-4: oklch(90.9% 0.0336 253.99);
+      --cyan-5: oklch(81.28% 0.0694 254.91);
+      --cyan-6: oklch(71.39% 0.1064 256.78);
+      --cyan-7: oklch(61.8% 0.1415 259.04);
+      --cyan-8: oklch(50.62% 0.1878 261.64);
+      --cyan-9: oklch(44.47% 0.2223 263.9);
+      --cyan-10: oklch(25.99% 0.1388 269.41);
+      --cyan-11: oklch(19.98% 0.1098 271.74);
+      --cyan-12: oklch(13.68% 0.0763 273.68);
+
+      --cyan-a1: oklch(44.47% 0.2223 263.9 / 3.14%);
+      --cyan-a2: oklch(44.47% 0.2223 263.9 / 5.1%);
+      --cyan-a3: oklch(44.47% 0.2223 263.9 / 10.2%);
+      --cyan-a4: oklch(44.47% 0.2223 263.9 / 16.08%);
+      --cyan-a5: oklch(44.47% 0.2223 263.9 / 23.92%);
+      --cyan-a6: oklch(44.47% 0.2223 263.9 / 32.94%);
+      --cyan-a7: oklch(44.47% 0.2223 263.9 / 43.92%);
+      --cyan-a8: oklch(44.47% 0.2223 263.9 / 63.14%);
+      --cyan-a9: oklch(44.47% 0.2223 263.9);
+      --cyan-a10: oklch(25.99% 0.1388 269.41);
+      --cyan-a11: oklch(19.98% 0.1098 271.74);
+      --cyan-a12: oklch(13.68% 0.0763 273.68);
+
+      --cyan-contrast: #fff;
+      --cyan-surface: oklch(97.77% 0.0125 251.81 / 80%);
+      --cyan-indicator: oklch(44.47% 0.2223 263.9);
+      --cyan-track: oklch(44.47% 0.2223 263.9);
+    }
+  }
+}
+
+/* Dark Mode Customization */
+.dark,
+.dark-theme {
+  --cyan-1: #0c1020;
+  --cyan-2: #101630;
+  --cyan-3: #14204a;
+  --cyan-4: #17296b;
+  --cyan-5: #1c3490;
+  --cyan-6: #2543b8;
+  --cyan-7: #3055d8;
+  --cyan-8: #2d58f2;
+  --cyan-9: #1c3cf1;
+  --cyan-10: #4b6bff;
+  --cyan-11: #8da4ff;
+  --cyan-12: #d5dfff;
+
+  --cyan-a1: #0c102008;
+  --cyan-a2: #1016300d;
+  --cyan-a3: #14204a1a;
+  --cyan-a4: #17296b29;
+  --cyan-a5: #1c34903d;
+  --cyan-a6: #2543b854;
+  --cyan-a7: #3055d870;
+  --cyan-a8: #2d58f2a1;
+  --cyan-a9: #1c3cf1;
+  --cyan-a10: #4b6bff;
+  --cyan-a11: #8da4ff;
+  --cyan-a12: #d5dfff;
+
+  --cyan-contrast: #fff;
+  --cyan-surface: #0c1d4580;
+  --cyan-indicator: #1c3cf1;
+  --cyan-track: #1c3cf1;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    .dark,
+    .dark-theme {
+      --cyan-1: oklch(11.9% 0.0337 271.8);
+      --cyan-2: oklch(14.88% 0.0526 273.47);
+      --cyan-3: oklch(20.35% 0.0886 275.98);
+      --cyan-4: oklch(25.99% 0.1345 277.94);
+      --cyan-5: oklch(32.7% 0.1878 280.44);
+      --cyan-6: oklch(40.57% 0.229 279.13);
+      --cyan-7: oklch(48.24% 0.2547 277.34);
+      --cyan-8: oklch(50.62% 0.1878 261.64);
+      --cyan-9: oklch(44.47% 0.2223 263.9);
+      --cyan-10: oklch(56.74% 0.2452 270.62);
+      --cyan-11: oklch(72.5% 0.1479 272.1);
+      --cyan-12: oklch(89.7% 0.0478 273.8);
+
+      --cyan-a1: oklch(11.9% 0.0337 271.8 / 3.14%);
+      --cyan-a2: oklch(14.88% 0.0526 273.47 / 5.1%);
+      --cyan-a3: oklch(20.35% 0.0886 275.98 / 10.2%);
+      --cyan-a4: oklch(25.99% 0.1345 277.94 / 16.08%);
+      --cyan-a5: oklch(32.7% 0.1878 280.44 / 23.92%);
+      --cyan-a6: oklch(40.57% 0.229 279.13 / 32.94%);
+      --cyan-a7: oklch(48.24% 0.2547 277.34 / 43.92%);
+      --cyan-a8: oklch(50.62% 0.1878 261.64 / 63.14%);
+      --cyan-a9: oklch(44.47% 0.2223 263.9);
+      --cyan-a10: oklch(56.74% 0.2452 270.62);
+      --cyan-a11: oklch(72.5% 0.1479 272.1);
+      --cyan-a12: oklch(89.7% 0.0478 273.8);
+
+      --cyan-contrast: #fff;
+      --cyan-surface: oklch(19.54% 0.0911 275.29 / 50.2%);
+      --cyan-indicator: oklch(44.47% 0.2223 263.9);
+      --cyan-track: oklch(44.47% 0.2223 263.9);
+    }
+  }
+}
